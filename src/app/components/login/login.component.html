@@ -1,0 +1,66 @@
+<div class="page-content animated fadeIn fast">
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content d-flex justify-content-center align-items-center" *ngIf="sesion=='admin.parcial'">
+
+            <!-- Login form -->
+            <!-- <form class="login-form" (ngSubmit)="validateUser()" [formGroup]="form">-->
+            <form class="login-form" [formGroup]="nuevoForm" (ngSubmit)="viewform(nuevoForm.value)">
+                <div class="card mb-0">
+                    <div class="card-body">
+                        <div class="text-center mb-3">
+                            <img src="assets/img/logoCarvajal.JPG" alt="">
+                            <!--<i class="icon-reading icon-2x text-slate-300 border-slate-300 border-3 rounded-round p-3 mb-3 mt-1"></i>-->
+                            <h5 class="mb-0">Ingresar</h5>
+                            <span class="d-block text-muted">Digita tus datos a continuación</span>
+                        </div>
+
+                        <div class="form-group form-group-feedback form-group-feedback-left">
+                            <!--<input type="email" class="form-control" placeholder="Correo" formControlName="email" [class.is-invalid]="fieldNotValid('email')">
+                          <small class="text-danger" *ngIf="fieldNotValid('email')">Ingrese un correo válido</small>-->
+                            <input type="email" class="form-control" placeholder="Correo" formControlName="email">
+                            <small class="text-danger">Ingrese un correo válido</small>
+                            <div class="form-control-feedback">
+                                <i class="icon-user text-muted"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-feedback form-group-feedback-left">
+                            <!--<input type="password" class="form-control" placeholder="Constraseña" formControlName="contrasena" [class.is-invalid]="fieldNotValid('contrasena')">
+                          <small class="text-danger" *ngIf="fieldNotValid('contrasena')">Ingrese más de seis dígitos</small>-->
+                            <input type="password" class="form-control" placeholder="Contraseña" formControlName="password">
+                            <small class="text-danger">Ingrese más de seis dígitos</small>
+                            <div class="form-control-feedback">
+                                <i class="icon-lock2 text-muted"></i>
+                            </div>
+                        </div>
+
+                        <!-- <small class="text-danger" *ngIf="credentialsDoNotExist"><h5>Las credenciales son incorectas, intente nuevamente</h5></small>-->
+
+
+                        <div class="form-group">
+                            <!--<button type="submit" class="btn bg-light-2 btn-block btn-secondary">Ingresar <i class="icon-circle-right2 ml-2"></i></button>-->
+                            <button class="btn bg-light-2 btn-block btn-secondary" type="submit">Ingresar <i class="icon-circle-right2 ml-2"></i></button>
+                        </div>
+                        <div class="text-center">
+                            <!-- <a [routerLink]="['/singIn']">No estoy registrado</a>-->
+                            <a>Crear usuario por medio de un administrador</a>
+                            <span class="navbar-text">
+                              © 2021 - Sertecs
+                          </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- /login form -->
+
+        </div>
+        <!-- /content area -->
+
+    </div>
+    <!-- /main content -->
+
+</div>
+<!-- /page content -->

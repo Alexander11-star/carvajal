@@ -1,0 +1,54 @@
+<!-- Sidebar mobile toggler -->
+<div class="sidebar-mobile-toggler text-center">
+    <a href="#" class="sidebar-mobile-main-toggle">
+        <i class="icon-arrow-left8"></i>
+    </a>
+    Navigation
+    <a href="#" class="sidebar-mobile-expand">
+        <i class="icon-screen-full"></i>
+        <i class="icon-screen-normal"></i>
+    </a>
+</div>
+<!-- /sidebar mobile toggler -->
+
+
+<!-- Sidebar content -->
+<div class="sidebar-content">
+
+    <!-- User menu -->
+    <div class="sidebar-user">
+        <div class="card-body">
+            <div class="media">
+                <div class="mr-3">
+                    <i class="icon-home4"></i>
+                </div>
+
+                <div class="media-body">
+                    <div class="media-title font-weight-semibold">MENU</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /user menu -->
+
+
+    <!-- Main navigation -->
+    <div class="card card-sidebar-mobile" id="navbarSupportedContent">
+        <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+            <!-- Main -->
+            <li class="nav-item-header">
+                <div class="text-uppercase font-size-xs line-height-xs">LISTA DE OPCIONES</div> <i class="icon-menu" title="Main"></i></li>
+
+            <li class="nav-item nav-item-submenu">
+                <a href="#" class="nav-link"><i class="icon-grid6"></i><span>Configuración</span></a>
+                <ul class="nav nav-group-sub" data-submenu-title="Configuración">
+                    <li class="nav-item" routerLinkActive="active"><a [routerLink]="['user']" class="nav-link">Crear Usuario</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- /main navigation -->
+
+</div>
+<!-- /sidebar content -->

@@ -1,0 +1,152 @@
+<div class="content-wrapper animated fadeIn fast">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-header-content header-elements-md-inline">
+            <div class="page-title d-flex">
+                <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Actualizar Usuario</span> - Modificar</h4>
+                <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="content pt-0">
+        <!-- /page header -->
+        <div class="card">
+            <div class="card-header header-elements-inline">
+                <h5 class="card-title">Ingrese los datos</h5>
+                <div class="header-elements">
+                    <div class="list-icons">
+                        <a class="list-icons-item" data-action="collapse"></a>
+                        <a class="list-icons-item" data-action="reload"></a>
+                        <a class="list-icons-item" data-action="remove"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <form action="#" [formGroup]="nuevoForm" (ngSubmit)="viewform(nuevoForm.value)" readonly>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <fieldset>
+                                <legend class="font-weight-semibold"><i class="icon-reading mr-2"></i>Datos Personales</legend>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Nombre:<span class="text-danger">*</span></label>
+                                            <input type="hidden" class="form-control" [ngModel]="idUser" formControlName="idUser" required>
+                                            <input type="text" placeholder="Nombre" class="form-control" [ngModel]="firstName" formControlName="firstName" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Apellidos:<span class="text-danger">*</span></label>
+                                            <input type="text" placeholder="Apellidos" class="form-control" [ngModel]="lastName" formControlName="lastName" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Tipo de Documento<span class="text-danger">*</span></label>
+                                            <input type="hidden" class="form-control" [ngModel]="type" formControlName="type" required>
+                                            <select class="form-control select-search" aria-label=".form-select-sm example" [ngModel]="type" formControlName="idDocument" required>
+                                                <option *ngFor="let documents of documents" [value]="documents.idDocument">{{documents.type}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Numero de Documento<span class="text-danger">*</span></label>
+                                            <input type="number" min="0" class="form-control" placeholder="0" [ngModel]="idNumber" formControlName="idNumber" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                                <legend class="font-weight-semibold"><i class="icon-truck mr-2"></i> Datos de acceso al sistema</legend>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Correo:<span class="text-danger">*</span></label>
+                                            <input type="text" placeholder="usuario@mail.com" class="form-control" [ngModel]="email" formControlName="email" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Contraseña:<span class="text-danger">*</span></label>
+                                            <input type="text" placeholder="contraseña" class="form-control" [ngModel]="password" formControlName="password" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-dark mb-2 mr-2" [routerLink]="['/user']">Volver</button>
+                        <button type="submit" class="btn btn-primary mb-2 mr-2">Guardar<i class="icon-paperplane ml-2"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Basic table -->
+        <div class="card">
+            <div class="card-header header-elements-inline">
+                <h5 class="card-title">Lista de Usuarios</h5>
+                <div class="header-elements">
+                    <div class="list-icons">
+                        <a class="list-icons-item" data-action="collapse"></a>
+                        <a class="list-icons-item" data-action="reload"></a>
+                        <a class="list-icons-item" data-action="remove"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table datatable class="table row-border hover table-filter-row">
+                                <thead>
+                                    <tr style="background-color: #2d4148;color: #ffffff" class="text-center">
+                                        <th>No</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>Tipo Documento</th>
+                                        <th>Numero</th>
+                                        <th>Email</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of users; let i=index" class="text-center">
+                                        <td> {{ i+1 }} </td>
+                                        <th> {{ user.firstName }} </th>
+                                        <th> {{ user.lastName }} </th>
+                                        <th> {{ user.type }} </th>
+                                        <th> {{ user.idNumber }} </th>
+                                        <th> {{ user.email }} </th>
+                                        <td>
+                                            <button type="button" class="btn bg-danger" (click)="deleteUser(user.idUser)">Eliminar</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Basic table -->
+        <!--Basic table -->
+        <div class="card">
+        </div>
+    </div>
+</div>
